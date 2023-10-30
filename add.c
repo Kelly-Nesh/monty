@@ -9,13 +9,13 @@
 
 void func_add_item(stack_t **head, unsigned int ln)
 {
-	stack_t *topstack;
+	stack_t *headStack;
 	int len = 0, node;
 
-	topstack = *head;
-	while (topstack)
+	headStack = *head;
+	while (headStack)
 	{
-		topstack = topstack->next;
+		headStack = headStack->next;
 		len++;
 	}
 	if (len < 2)
@@ -26,9 +26,9 @@ void func_add_item(stack_t **head, unsigned int ln)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	topstack = *head;
-	node = topstack->n + topstack->next->n;
-	topstack->next->n = node;
-	*head = topstack->next;
-	free(topstack);
+	headStack = *head;
+	node = headStack->n + headStack->next->n;
+	headStack->next->n = node;
+	*head = headStack->next;
+	free(headStack);
 }
